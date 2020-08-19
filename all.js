@@ -18,11 +18,11 @@ const getdata = (links)=>{
             roomsData = res.data.items;
             render();
 
-            }else{
+            }/*else{
 
                 roomsData = res.data.room;
                 rooms();
-            }
+            }*/
             
 
         })
@@ -56,7 +56,7 @@ function render() {
 
 }
 
-
+/*
 function rooms() {
 
     let str = "";
@@ -81,3 +81,4 @@ function rooms() {
     
 }
 
+*/
