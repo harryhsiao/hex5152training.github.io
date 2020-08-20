@@ -89,7 +89,9 @@ img{
     
     .roominfo p{
 
-        font-size: 15px;
+		font-size: 15px;
+		line-height: 20px;
+		margin-bottom: 15px;
 
     }
 

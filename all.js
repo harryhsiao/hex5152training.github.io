@@ -1,5 +1,5 @@
 let roomtype = document.querySelector('.roomtype');
-let roomt = document.querySelector('.roomt');
+let load = document.querySelector('.load');
 let nowurl = location.search.split('=')[1];
 
 let url = 'https://challenge.thef2e.com/api/thef2e2019/stage6/';
@@ -13,32 +13,36 @@ const getdata = (links)=>{
     axios.get(links)
         .then((res) => {
 
+            load.innerHTML = "";
+            
             if(nowurl===undefined){
 
-            roomsData = res.data.items;
-            render();
+                roomsData = res.data.items;
+                render();
 
-            }/*else{
-
+            }else{
+                
                 roomsData = res.data.room;
-                rooms();
-            }*/
-            
+                roomstyle();
 
-        })
+            }          
 
-}
+        })      
+
+};
+
 
 getdata(`${url}rooms`);
 
+
 getdata(`${url}room/${nowurl}`);
+
 
 
 function render() {
 
     let str = "";
     roomsData.forEach((item) => {
-
 
         str += `<li>
 
@@ -56,10 +60,12 @@ function render() {
 
 }
 
-/*
-function rooms() {
+
+function roomstyle() {
+
 
     let str = "";
+
     roomsData.forEach((item) => {
 
 
@@ -70,15 +76,15 @@ function rooms() {
 			<p class="title">房型名稱：${item.name}</p>
 			<p>平日(一~四)價格：${item.normalDayPrice}元</p>
             <p>假日(五~日)價格：${item.holidayPrice}元</p>
-            <p>${item.description}</p>
+            <p style="margin-top:25px">${item.description}</p>
         </div>
         
-		</li>`;
+        </li>`;
+
 
     });
+
     roomtype.innerHTML = str;
 
-    
 }
 
-*/
